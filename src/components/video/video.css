@@ -2,11 +2,13 @@
     display: flex;
     justify-content: center;
     max-width: 1200px;
-    margin: 50px auto 0;
+    margin: 50px auto 100px;
 }
+
 
 /* === VIDEO DETAILS === */
 .video-details {
+    width: 850px;
     margin-right: 50px;
     text-align: left;
 }
@@ -16,6 +18,17 @@
     height: 480px;
 }
 
+.video__details {
+    border: 1px solid lightgray;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.video__title {
+    margin-top: 0;
+}
+
+
 /* === VIDEO LIST === */
 .video-list__item {
     display: flex;
@@ -23,9 +36,13 @@
     cursor: pointer;
     border: 1px solid lightgray;
     border-bottom: none;
+    transition: .15s ease-in;
 }
 .video-list__item:last-of-type {
     border-bottom: 1px solid lightgray;
+}
+.video-list__item:hover {
+    background-color: #d3d3d361;
 }
 
 .item__desc {

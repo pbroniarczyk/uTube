@@ -1,0 +1,12 @@
+.search {
+    width: 100%;
+    max-width: 960px;
+    padding: 10px 20px;
+    font-size: 24px;
+    margin-top: 50px;
+    border: 1px solid lightgray;
+}
+
+.search::placeholder {
+    color: gray;
+}
