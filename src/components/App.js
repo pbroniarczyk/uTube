@@ -7,6 +7,7 @@ import VideoList from "./video/VideoList.jsx";
 
 // Assets
 import YTSearch from "youtube-api-search";
+import _ from "lodash";
 import './App.css';
 const API_KEY = "AIzaSyBIiSrI5ugHvLgX4bKBN6Efy6eusTmgj00";
 
@@ -40,9 +41,11 @@ class App extends Component {
 	}
 
 	render() {
+		const searchVideo = _.debounce((search) => {this.videoSearch(search)}, 300);
+
 		return (
 			<div className="App">
-				<SearchBar videoSearch={this.videoSearch} />
+				<SearchBar videoSearch={searchVideo} />
 				<div className="video-wrapper">
 					<VideoDetails video={this.state.selectedVideo}/>
 					<VideoList

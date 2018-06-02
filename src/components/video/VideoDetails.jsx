@@ -8,8 +8,6 @@ export default class VideoDetails extends Component {
         const id = video.id.videoId;
         const url = `https://www.youtube.com/embed/${id}`;
 
-        console.log("video details ", video);
-
         return (
             <div className="video-details">
                 <div className="video__player">

@@ -13,6 +13,11 @@ export default class SearchBar extends Component {
         if(event.keyCode === 13) 
             this.props.videoSearch(this.state.searchValue);
     }
+
+    onINputChange = searchValue => {
+        this.setState({ searchValue })
+        this.props.videoSearch(searchValue)
+    }
     
     render() {
         return (
@@ -21,7 +26,7 @@ export default class SearchBar extends Component {
                 className="search"
                 value={this.state.searchValue}
                 onKeyUp={(event) => this.onKeyEnter(event)}
-                onChange={event => this.setState({ searchValue: event.target.value })} />
+                onChange={event => this.onINputChange(event.target.value)} />
         );
     }
 }
