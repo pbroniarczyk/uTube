@@ -334,6 +334,10 @@ aws4@^1.6.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.7.0.tgz#d4d0e9b9dbfca77bf08eeb0a8a471550fe39e289"
 
+axios@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.7.0.tgz#489c269044d5066dfa2c64c749cb131b176f4a7a"
+
 axobject-query@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/axobject-query/-/axobject-query-0.1.0.tgz#62f59dbc59c9f9242759ca349960e7a2fe3c36c0"
@@ -5535,6 +5539,19 @@ react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
 
+react-is@^16.4.0:
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.0.tgz#cc9fdc855ac34d2e7d9d2eb7059bbc240d35ffcf"
+
+react-test-renderer@^16.4.0:
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.4.0.tgz#0dbe0e24263e94e1830c7afb1f403707fad313a3"
+  dependencies:
+    fbjs "^0.8.16"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
+    react-is "^16.4.0"
+
 react@^16.4.0:
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.0.tgz#402c2db83335336fba1962c08b98c6272617d585"
@@ -7092,3 +7109,9 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+youtube-api-search@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/youtube-api-search/-/youtube-api-search-0.0.5.tgz#9dd686de762ff2504a90288c57fce5a370643002"
+  dependencies:
+    axios "^0.7.0"
