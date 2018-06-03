@@ -5,36 +5,39 @@ import SearchBar from "./search/SearchBar.jsx";
 import VideoDetails from "./video/VideoDetails.jsx";
 import VideoList from "./video/VideoList.jsx";
 
+// Redux
+import { connect } from "react-redux";
+import { searchVideo } from "../actions/search_video";
+
 // Assets
-import YTSearch from "youtube-api-search";
+// import YTSearch from "youtube-api-search";
 import _ from "lodash";
 import './App.css';
-const API_KEY = "AIzaSyBIiSrI5ugHvLgX4bKBN6Efy6eusTmgj00";
 
 
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			selectedVideo: "",
-			videos: []
-		}
+		// this.state = {
+		// 	selectedVideo: "",
+		// 	videos: []
+		// }
 
-		this.videoSearch("javascript");
+		this.props.searchVideo("javascript");
 
 		this.onVidoeSelect = this.onVidoeSelect.bind(this);
-		this.videoSearch = this.videoSearch.bind(this);
+		// this.videoSearch = this.videoSearch.bind(this);
 	}
 
-	videoSearch = (search) => {
-		YTSearch(
-			{ key: API_KEY, term: search },
-			videos => this.setState({ 
-				videos,
-				selectedVideo: videos[0] 
-			})
-		)
-	}
+	// videoSearch = (search) => {
+	// 	YTSearch(
+	// 		{ key: API_KEY, term: search },
+	// 		videos => this.setState({ 
+	// 			videos,
+	// 			selectedVideo: videos[0] 
+	// 		})
+	// 	)
+	// }
 
 	onVidoeSelect = (video) => {
 		this.setState({ selectedVideo: video })
@@ -44,17 +47,28 @@ class App extends Component {
 		const searchVideo = _.debounce((search) => {this.videoSearch(search)}, 300);
 
 		return (
-			<div className="App">
-				<SearchBar videoSearch={searchVideo} />
-				<div className="video-wrapper">
-					<VideoDetails video={this.state.selectedVideo}/>
-					<VideoList
-						onVidoeSelect={this.onVidoeSelect}
-						videos={this.state.videos}/>
+			
+				<div className="App">
+					<SearchBar videoSearch={searchVideo} />
+					<div className="video-wrapper">
+						<VideoDetails video={this.props.selectedVideo}/>
+						<VideoList
+							onVidoeSelect={this.onVidoeSelect}
+							// videos={this.props.videos}
+						/>
+					</div>
 				</div>
-			</div>
+			
 		);
 	}
 }
 
-export default App;
+
+const mapStateToProps = state => ({
+	videos: state.videos.videos
+})
+
+export default connect(
+	mapStateToProps,
+	{ searchVideo }
+)(App);
