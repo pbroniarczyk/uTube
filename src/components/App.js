@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 import { searchVideo } from "../actions/search_video";
 
 // Assets
-// import YTSearch from "youtube-api-search";
 import _ from "lodash";
 import './App.css';
 
@@ -18,15 +17,10 @@ import './App.css';
 class App extends Component {
 	constructor(props) {
 		super(props);
-		// this.state = {
-		// 	selectedVideo: "",
-		// 	videos: []
-		// }
 
 		this.props.searchVideo("javascript");
 
 		this.onVidoeSelect = this.onVidoeSelect.bind(this);
-		// this.videoSearch = this.videoSearch.bind(this);
 	}
 
 	// videoSearch = (search) => {
@@ -54,7 +48,6 @@ class App extends Component {
 						<VideoDetails video={this.props.selectedVideo}/>
 						<VideoList
 							onVidoeSelect={this.onVidoeSelect}
-							// videos={this.props.videos}
 						/>
 					</div>
 				</div>
