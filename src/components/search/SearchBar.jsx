@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 
+// Redux
+import { connect } from "react-redux";
+import { searchVideo, searchValue } from "../../actions/search_video";
+
 // Assets
 import "./search.css";
 
 
-export default class SearchBar extends Component {
-    state = {
-        searchValue: ""
-    }
+class SearchBar extends Component {
 
     onKeyEnter = event => {
         if(event.keyCode === 13) 
-            this.props.videoSearch(this.state.searchValue);
+            this.props.searchVideo(this.props.searchPhrase);
     }
 
-    onINputChange = searchValue => {
-        this.setState({ searchValue })
-        this.props.videoSearch(searchValue)
+    onInputChange = searchPhrase => {
+        this.props.searchValue(searchPhrase);
     }
     
     render() {
@@ -24,9 +24,19 @@ export default class SearchBar extends Component {
             <input
                 placeholder="search videos..."
                 className="search"
-                value={this.state.searchValue}
+                value={this.props.searchPhrase}
                 onKeyUp={(event) => this.onKeyEnter(event)}
-                onChange={event => this.onINputChange(event.target.value)} />
+                onChange={event => this.onInputChange(event.target.value)} />
         );
     }
 }
+
+const mapStateToProps = state => ({
+    searchPhrase: state.videos.searchPhrase,
+    videos: state.videos
+});
+
+export default connect(
+    mapStateToProps,
+    { searchVideo, searchValue }
+)(SearchBar)

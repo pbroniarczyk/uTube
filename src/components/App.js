@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 import { searchVideo } from "../actions/search_video";
 
 // Assets
-import _ from "lodash";
 import './App.css';
 
 
@@ -22,18 +21,14 @@ class App extends Component {
 	}
 
 	render() {
-		const searchVideo = _.debounce((search) => {this.videoSearch(search)}, 300);
-
 		return (
-			
-				<div className="App">
-					<SearchBar videoSearch={searchVideo} />
-					<div className="video-wrapper">
-						<VideoDetails />
-						<VideoList />
-					</div>
+			<div className="App">
+				<SearchBar />
+				<div className="video-wrapper">
+					<VideoDetails />
+					<VideoList />
 				</div>
-			
+			</div>
 		);
 	}
 }

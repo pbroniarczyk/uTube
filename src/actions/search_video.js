@@ -1,4 +1,4 @@
-import { SEARCH_VIDEO } from "./types";
+import { SEARCH_VIDEO, SEARCH_VALUE } from "./types";
 import YTSearch from "youtube-api-search";
 
 const API_KEY = "AIzaSyBIiSrI5ugHvLgX4bKBN6Efy6eusTmgj00";
@@ -12,4 +12,11 @@ export const searchVideo = search => dispatch => {
             payload: videos
         })
     );
+}
+
+export const searchValue = searchPhrase => dispatch => {
+    dispatch({
+        type: SEARCH_VALUE,
+        payload: searchPhrase
+    })
 }

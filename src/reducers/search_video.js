@@ -1,7 +1,7 @@
-import { SEARCH_VIDEO, SELECT_VIDEO } from "../actions/types";
+import { SEARCH_VIDEO, SELECT_VIDEO, SEARCH_VALUE } from "../actions/types";
 
 const initialState = {
-    searchValue: "",
+    searchPhrase: "",
     selectedVideo: "",
 	videos: [],
 }
@@ -18,6 +18,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 selectedVideo: action.payload
+            }
+
+        case SEARCH_VALUE:
+            return {
+                ...state,
+                searchPhrase: action.payload
             }
     
         default:
