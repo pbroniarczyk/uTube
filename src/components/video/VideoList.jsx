@@ -11,8 +11,7 @@ class VideoList extends Component {
             <div className="video-list">{ this.props.videos.map((video, index) => 
                 <VideoListItem
                     key={video.etag}
-                    video={video}
-                    onVidoeSelect={this.props.onVidoeSelect} />) 
+                    video={video} />) 
             }</div>
         );
     }

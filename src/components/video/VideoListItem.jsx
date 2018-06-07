@@ -1,17 +1,22 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+// Redux
+import { connect } from "react-redux";
+import { selectVideo } from "../../actions/select_video";
 
 // Assets
 import "./video.css";
 
 
-export default class VideoListItem extends Component {
+class VideoListItem extends Component {
     render() {
         const video = this.props.video.snippet;
-
+        console.log("video item", this.props)
         return (
             <div
                 className="video-list__item"
-                onClick={() => { this.props.onVidoeSelect(this.props.video) }} >
+                onClick={() => { this.props.selectVideo(this.props.video) }} >
+
                 <img className="item__thumbnail" src={video.thumbnails.default.url} alt={video.title}/>
                 <div className="item__desc">
                     <p className="item__title">{video.title}</p>
@@ -21,3 +26,8 @@ export default class VideoListItem extends Component {
         )
     }
 }
+
+export default connect(
+	null,
+	{ selectVideo }
+)(VideoListItem);

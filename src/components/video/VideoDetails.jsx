@@ -6,7 +6,7 @@ class VideoDetails extends Component {
     render() {
         if(!this.props.video) return <div>Loading...</div>;
 
-        const video = this.props.video;
+        const video = this.props.selectedVideo ? this.props.selectedVideo : this.props.video;
         const id = video.id.videoId;
         const url = `https://www.youtube.com/embed/${id}`;
 
@@ -30,7 +30,8 @@ class VideoDetails extends Component {
 }
 
 const mapStateToProps = state => ({
-    video: state.videos.videos[0]
+    video: state.videos.videos[0],
+    selectedVideo: state.videos.selectedVideo
 });
 
 export default connect(mapStateToProps)(VideoDetails)

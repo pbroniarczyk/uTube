@@ -1,4 +1,4 @@
-import { SEARCH_VIDEO } from "../actions/types";
+import { SEARCH_VIDEO, SELECT_VIDEO } from "../actions/types";
 
 const initialState = {
     searchValue: "",
@@ -7,12 +7,19 @@ const initialState = {
 }
 
 export default (state = initialState, action) => {
+    console.log("reducer", action)
     switch (action.type) {
         case SEARCH_VIDEO:
             return {
                 ...state,
                 videos: action.payload
             };
+
+        case SELECT_VIDEO:
+            return {
+                ...state,
+                selectedVideo: action.payload
+            }
     
         default:
             return initialState;

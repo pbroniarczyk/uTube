@@ -18,23 +18,7 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.props.searchVideo("javascript");
-
-		this.onVidoeSelect = this.onVidoeSelect.bind(this);
-	}
-
-	// videoSearch = (search) => {
-	// 	YTSearch(
-	// 		{ key: API_KEY, term: search },
-	// 		videos => this.setState({ 
-	// 			videos,
-	// 			selectedVideo: videos[0] 
-	// 		})
-	// 	)
-	// }
-
-	onVidoeSelect = (video) => {
-		this.setState({ selectedVideo: video })
+		this.props.searchVideo("redux");
 	}
 
 	render() {
@@ -45,10 +29,8 @@ class App extends Component {
 				<div className="App">
 					<SearchBar videoSearch={searchVideo} />
 					<div className="video-wrapper">
-						<VideoDetails video={this.props.selectedVideo}/>
-						<VideoList
-							onVidoeSelect={this.onVidoeSelect}
-						/>
+						<VideoDetails />
+						<VideoList />
 					</div>
 				</div>
 			

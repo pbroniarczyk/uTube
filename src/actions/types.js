@@ -1,1 +1,2 @@
 export const SEARCH_VIDEO = "SEARCH_VIDEO";
+export const SELECT_VIDEO = "SELECT_VIDEO";
