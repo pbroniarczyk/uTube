@@ -14,9 +14,9 @@ export const searchVideo = search => dispatch => {
     );
 }
 
-export const searchValue = searchPhrase => dispatch => {
-    dispatch({
+export const searchValue = searchPhrase => {
+    return {
         type: SEARCH_VALUE,
         payload: searchPhrase
-    })
+    }
 }
